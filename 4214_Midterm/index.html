@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>FitTrack - Home</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div id="header"></div>
+  <header class="container text-center mt-5">
+    <h1>Welcome to FitTrack</h1>
+    <p>Your personalized task manager for weight goals</p>
+    <a href="tasks.html" class="btn btn-primary">Track Your Goals</a>
+  </header>
+
+  <section class="container mt-5">
+    <h3>Latest Activity</h3>
+    <ul id="latestActivity">
+      <li>Jane added a weight loss goal for July.</li>
+      <li>Mark completed his 5kg gain plan.</li>
+    </ul>
+  </section>
+
+  <div id="footer"></div>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Load header
+    fetch('header.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('header').innerHTML = data;
+      });
+
+    // Load footer
+    fetch('footer.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('footer').innerHTML = data;
+      });
+  </script>
+  <script src="js/scripts.js"></script>
+</body>
+</html>
