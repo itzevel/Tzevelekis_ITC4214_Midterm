@@ -1,0 +1,28 @@
+body.dark-mode {
+  background-color: #121212;
+  color: #f1f1f1;
+}
+
+.navbar-dark-mode {
+  background-color: #333 !important;
+}
+
+.task-high {
+  color: red;
+  font-weight: bold;
+}
+
+.task-medium {
+  color: orange;
+  font-weight: bold;
+}
+
+.task-low {
+  color: green;
+  font-weight: bold;
+}
+
+.card-img-top {
+  height: 180px;
+  object-fit: cover;
+}
