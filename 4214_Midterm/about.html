@@ -6,52 +6,71 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
   <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" />
 </head>
 <body>
   <div id="header"></div>
+
   <main class="container mt-5">
     <h2>About FitTrack</h2>
-    <p>This app helps you manage fitness-related goals through a simple, clear interface. Whether you're gaining or losing weight, stay on track!</p>
-    <h3 class="mt-4">Our Team</h3>
+    <p>FitTrack helps you stay committed to your fitness goals. Log your plans, monitor progress, and keep motivated all in one place!</p>
+
+    <h3 class="mt-4">Meet the Team</h3>
     <div class="row row-cols-1 row-cols-md-3 g-4">
       <div class="col">
-        <div class="card">
-          <img src="images/avatar1.png" class="card-img-top" alt="Alice">
+        <div class="card h-100">
+          <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?crop=faces&fit=crop&h=400&w=400" class="card-img-top" alt="Alice">
           <div class="card-body">
             <h5 class="card-title">Alice</h5>
-            <p class="card-text">UI/UX Designer</p>
+            <p class="card-text">Frontend Developer & UI Specialist</p>
           </div>
         </div>
       </div>
       <div class="col">
-        <div class="card">
-          <img src="images/avatar2.png" class="card-img-top" alt="Bob">
+        <div class="card h-100">
+          <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?crop=faces&fit=crop&h=400&w=400" class="card-img-top" alt="Bob">
           <div class="card-body">
             <h5 class="card-title">Bob</h5>
-            <p class="card-text">Full-Stack Developer</p>
+            <p class="card-text">Backend Developer & Database Guru</p>
           </div>
         </div>
       </div>
     </div>
+
+    <h3 class="mt-5">Testimonials</h3>
+    <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="d-flex justify-content-center">
+            <blockquote class="blockquote">
+              <p class="mb-0">"FitTrack completely changed the way I track my fitness goals!"</p>
+              <footer class="blockquote-footer mt-2">John Doe</footer>
+            </blockquote>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="d-flex justify-content-center">
+            <blockquote class="blockquote">
+              <p class="mb-0">"So easy to use and visually beautiful."</p>
+              <footer class="blockquote-footer mt-2">Jane Smith</footer>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </button>
+    </div>
   </main>
+
   <div id="footer"></div>
+
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    // Load header
-    fetch('header.html')
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById('header').innerHTML = data;
-      });
-
-    // Load footer
-    fetch('footer.html')
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById('footer').innerHTML = data;
-      });
-  </script>
+  <script src="js/templates.js"defer></script>
   <script src="js/scripts.js"></script>
 </body>
 </html>
