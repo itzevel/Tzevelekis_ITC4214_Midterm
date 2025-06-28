@@ -1,47 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
   <title>FitTrack - Home</title>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
   <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" />
 </head>
 <body>
   <div id="header"></div>
-  <header class="container text-center mt-5">
-    <h1>Welcome to FitTrack</h1>
-    <p>Your personalized task manager for weight goals</p>
-    <a href="tasks.html" class="btn btn-primary">Track Your Goals</a>
-  </header>
 
-  <section class="container mt-5">
-    <h3>Latest Activity</h3>
-    <ul id="latestActivity">
-      <li>Jane added a weight loss goal for July.</li>
-      <li>Mark completed his 5kg gain plan.</li>
-    </ul>
-  </section>
+  <main class="container mt-5">
+    <h1 class="text-center mb-4">Welcome to FitTrack</h1>
+    <p class="lead text-center">Your personalized fitness goals tracker.</p>
+    <div class="text-center">
+      <a href="tasks.html" class="btn btn-primary btn-lg">Start Tracking</a>
+    </div>
+
+    <section class="mt-5">
+      <h3>Latest Activity</h3>
+      <ul id="latestActivity" class="list-group"></ul>
+    </section>
+  </main>
 
   <div id="footer"></div>
 
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    // Load header
-    fetch('header.html')
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById('header').innerHTML = data;
-      });
+  <script src="js/templates.js" defer></script>
+  <script src="js/scripts.js" defer></script>
 
-    // Load footer
-    fetch('footer.html')
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById('footer').innerHTML = data;
-      });
+  <script>
+    $(document).ready(function () {
+      if (localStorage.getItem("tasks")) {
+        const tasks = JSON.parse(localStorage.getItem("tasks"));
+        const $list = $("#latestActivity");
+        $list.empty();
+
+        if (tasks.length === 0) {
+          $list.append("<li class='list-group-item'>No activity yet.</li>");
+        } else {
+          tasks.forEach(task => {
+            $list.append(`
+              <li class="list-group-item">
+                <strong>${task.name}</strong>: ${task.description}
+                (Due: ${task.due}, Priority: ${task.priority})
+              </li>
+            `);
+          });
+        }
+      }
+    });
   </script>
-  <script src="js/scripts.js"></script>
 </body>
 </html>
